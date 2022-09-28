@@ -21,10 +21,12 @@ dotnet publish ./App.RequestLogParser --self-contained -r linux-x64 -c Release -
 # windows 10+
 dotnet publish ./App.RequestLogParser --self-contained -r win10-x64 -c Release -o ./<some_output_folder>
 
-# for any other platform please refer to https://learn.microsoft.com/en-us/dotnet/core/rid-catalog for a full list of RIDs (to change the -r param)
+# for any other platform please refer to
+# https://learn.microsoft.com/en-us/dotnet/core/rid-catalog
+# for a full list of RIDs (to change the -r param)
 ```
 
-### Run
+### Runing the App
 
 #### Development
 
