@@ -2,6 +2,12 @@
 
 This is a tool that parses web request logs and displays simple analysis about them
 
+### Tests
+
+```sh
+dotnet test
+```
+
 ### Build
 
 #### Development
@@ -28,14 +34,36 @@ dotnet publish ./App.RequestLogParser --self-contained -r win10-x64 -c Release -
 
 ### Runing the App
 
+#### Options
+
+- `--input`
+  - path to the input log file
+  - required
+- `--output`
+  - path to the output file
+  - optional
+  - default: "./output.txt"
+- `--startDate`
+  - start date & time filter for analysis results
+  - optional
+  - format: yyyy-mm-dd HH:MM:SS
+  - value is inclusive
+- `--endDate`
+  - end date & time filter for analysis results
+  - optional
+  - format: yyyy-mm-dd HH:MM:SS
+  - value is inclusive
+
 #### Development
 
 ```sh
-dotnet run --project App.RequestLogParser
+# basic usage
+dotnet run --project App.RequestLogParser -- --input <path_to_input_file>
 ```
 
 #### Production
 
-```
-<path_to_production_build_output>/App.RequestLogParser
+```sh
+# basic usage
+<path_to_production_build_output>/App.RequestLogParser --input <path_to_input_file>
 ```
