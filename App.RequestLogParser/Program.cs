@@ -55,7 +55,7 @@ public class Program
         .Where(x => startDate.HasValue && x.time >= startDate.Value || !startDate.HasValue)
         .Where(x => endDate.HasValue && x.time <= endDate.Value || !endDate.HasValue);
 
-      Console.WriteLine(JsonSerializer.Serialize(logItems));
+      // Console.WriteLine(JsonSerializer.Serialize(logItems));
 
       Func<IGrouping<string, RequestLogItem>, (string Key, int Value)> countSelector = s => (Key: s.Key, Value: s.Count());
       var chartData = new List<Series>
@@ -64,14 +64,14 @@ public class Program
           Name: "Requests per Host",
           Data: logItems.GroupBy(x => x.Host)
             .Select(countSelector)
-            .OrderBy(x => x.Value)
+            .OrderByDescending(x => x.Value)
         ),
         new Series(
           Name: "Successful GET Requests",
           Data: logItems.Where(x => x.method == "GET")
             .GroupBy(x => x.path)
             .Select(countSelector)
-            .OrderBy(x => x.Value)
+            .OrderByDescending(x => x.Value)
         )
       };
       var renderer = new ResultRenderer(chartData);
