@@ -42,8 +42,8 @@ public class LogFileParser
         var method = match.Groups["method"]?.Value ?? "";
         var reqPath = match.Groups["path"]?.Value ?? "";
 
-        var status = Int32.Parse(fields[3]);
-        var size = Int32.Parse(fields[4]);
+        Int32.TryParse(fields[3], out var status);
+        Int32.TryParse(fields[4], out var size);
         var logItem = new RequestLogItem(host, time, method, reqPath, status, size);
 
         yield return logItem;
