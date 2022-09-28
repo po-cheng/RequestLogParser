@@ -3,7 +3,7 @@ namespace RequestLogParser.Lib.Utilities;
 using System.Globalization;
 using System.Text.RegularExpressions;
 using Microsoft.VisualBasic.FileIO;
-using ReqLogParser.Lib.Models;
+using RequestLogParser.Lib.Models;
 
 public class LogFileParser
 {
