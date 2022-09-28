@@ -14,12 +14,12 @@ public class ResultRenderer
 
   public string RenderAsText()
   {
-    return _data.Aggregate("", (p, c) =>
+    var seriesResults = _data.Select(s =>
     {
-      var seriesData = c.Data.Select(s => $"{s.Key} {s.Value}");
-      p = $"{p}{c.Name}\n{String.Join('\n', seriesData)}\n\n";
-      return p;
+      var seriesData = s.Data.Select(d => $"{d.Key} {d.Value}");
+      return $"{s.Name}\n{String.Join('\n', seriesData)}";
     });
+    return String.Join("\n\n", seriesResults);
   }
 
   public string RenderAsJson()
