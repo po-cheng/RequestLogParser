@@ -11,8 +11,8 @@
       "preLaunchTask": "build",
       // If you have changed target frameworks, make sure to update the program path.
       "program": "${workspaceFolder}/App.RequestLogParser/bin/Debug/net6.0/App.RequestLogParser.dll",
-      "args": [],
-      "cwd": "${workspaceFolder}/App.RequestLogParser",
+      "args": ["--input", "Data/test.txt"],
+      "cwd": "${workspaceFolder}",
       // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
       "console": "internalConsole",
       "stopAtEntry": false

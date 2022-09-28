@@ -1,6 +1,7 @@
 ﻿using System.Text.Json;
 using System.CommandLine;
 using RequestLogParser.Lib.Utilities;
+using RequestLogParser.Lib.Models;
 
 public class Program
 {
@@ -36,16 +37,16 @@ public class Program
     command.Add(startDateOption);
     command.Add(endDateOption);
 
-    command.SetHandler((inputPath, outputPath, startDate, endDate) =>
+    command.SetHandler(async (inputPath, outputPath, startDate, endDate) =>
     {
-      ReadFile(inputPath, outputPath, startDate, endDate);
+      await ProcessFile(inputPath, outputPath, startDate, endDate);
     },
     inputOption, outputOption, startDateOption, endDateOption);
 
     return await command.InvokeAsync(args);
   }
 
-  private static void ReadFile(string inputPath, string outputPath, DateTime? startDate, DateTime? endDate)
+  private static async Task ProcessFile(string inputPath, string outputPath, DateTime? startDate, DateTime? endDate)
   {
     if (File.Exists(inputPath))
     {
@@ -54,8 +55,29 @@ public class Program
         .Where(x => startDate.HasValue && x.time >= startDate.Value || !startDate.HasValue)
         .Where(x => endDate.HasValue && x.time <= endDate.Value || !endDate.HasValue);
 
-      Console.WriteLine(JsonSerializer.Serialize(new { inputPath, outputPath, startDate, endDate }));
       Console.WriteLine(JsonSerializer.Serialize(logItems));
+
+      Func<IGrouping<string, RequestLogItem>, (string Key, int Value)> countSelector = s => (Key: s.Key, Value: s.Count());
+      var chartData = new List<Series>
+      {
+        new Series(
+          Name: "Requests per Host",
+          Data: logItems.GroupBy(x => x.Host)
+            .Select(countSelector)
+            .OrderBy(x => x.Value)
+        ),
+        new Series(
+          Name: "Successful GET Requests",
+          Data: logItems.Where(x => x.method == "GET")
+            .GroupBy(x => x.path)
+            .Select(countSelector)
+            .OrderBy(x => x.Value)
+        )
+      };
+      var renderer = new ResultRenderer(chartData);
+      var result = renderer.RenderAsText();
+
+      await File.WriteAllTextAsync(outputPath, result);
     }
     else
     {
