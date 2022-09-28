@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.RequestLogParser", "App
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RequestLogParser.Lib.Test", "RequestLogParser.Lib.Test\RequestLogParser.Lib.Test.csproj", "{4BE50091-0423-42E7-826A-D9CC30C8A706}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RequestLogParser.Lib", "RequestLogParser.Lib\RequestLogParser.Lib.csproj", "{4B09AA89-781B-4BCF-A9B9-A8E0CD28BB0D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{4BE50091-0423-42E7-826A-D9CC30C8A706}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4BE50091-0423-42E7-826A-D9CC30C8A706}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4BE50091-0423-42E7-826A-D9CC30C8A706}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B09AA89-781B-4BCF-A9B9-A8E0CD28BB0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B09AA89-781B-4BCF-A9B9-A8E0CD28BB0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B09AA89-781B-4BCF-A9B9-A8E0CD28BB0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B09AA89-781B-4BCF-A9B9-A8E0CD28BB0D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
