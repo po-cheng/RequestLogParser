@@ -55,8 +55,6 @@ public class Program
         .Where(x => startDate.HasValue && x.time >= startDate.Value || !startDate.HasValue)
         .Where(x => endDate.HasValue && x.time <= endDate.Value || !endDate.HasValue);
 
-      // Console.WriteLine(JsonSerializer.Serialize(logItems));
-
       Func<IGrouping<string, RequestLogItem>, (string Key, int Value)> countSelector = s => (Key: s.Key, Value: s.Count());
       var chartData = new List<Series>
       {
