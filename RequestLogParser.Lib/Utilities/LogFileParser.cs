@@ -16,7 +16,6 @@ public class LogFileParser
     _filePath = filePath;
     _delimiter = delimiter;
     _quotedFields = quotedFields;
-
   }
 
   public IEnumerable<RequestLogItem> ReadLogItems()
