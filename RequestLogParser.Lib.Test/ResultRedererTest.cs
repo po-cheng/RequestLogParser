@@ -1,4 +1,3 @@
-using System;
 namespace RequestLogParser.Lib.Test;
 
 using RequestLogParser.Lib.Utilities;
