@@ -64,6 +64,9 @@ dotnet run --project App.RequestLogParser -- --input <path_to_input_file>
 #### Production
 
 ```sh
-# basic usage
+# linux/wsl basic usage
 <path_to_production_build_output>/App.RequestLogParser --input <path_to_input_file>
+
+# windows basic usage
+<path_to_production_build_output>\App.RequestLogParser.exe --input <path_to_input_file>
 ```
