@@ -11,4 +11,7 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <PropertyGroup>
+      <PublishTrimmed>true</PublishTrimmed>
+  </PropertyGroup>
 </Project>
