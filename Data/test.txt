@@ -1,3 +1,9 @@
-141.243.1.172 [29:23:53:25] "GET /Software.html HTTP/1.0" 200 1497
-query2.lycos.cs.cmu.edu [29:23:53:36] "GET /Consumer.html HTTP/1.0" 200 1325
-141.243.1.172 [29:23:53:39] "GET /Software.html HTTP/1.0" 200 1497
+141.243.1.172 [29:23:53:25] "POST /Software.html HTTP/1.0" 200 1497
+query2.lycos.cs.cmu.edu [29:23:53:36] "POST /Consumer.html HTTP/1.0" 200 1325
+141.243.1.172 [29:23:53:39] "POST /Software.html HTTP/1.0" 200 1497
+156.98.205.46 [30:15:00:31] "POST /docs/OSWRCRA/hazwaste/ldr HTTP/1.0" 302 -
+world.std.com [30:15:00:32] "POST /docs/EPA-AIR/1995/February/Day-15/pr-402.html HTTP/1.0" 200 821
+dcoap15.dcoap.epa.gov [30:15:00:32] "POST /usage/week62.html HTTP/1.0" 200 1191
+dcoap15.dcoap.epa.gov [30:15:00:33] "POST /usage/chart62.gif HTTP/1.0" 200 2375
+156.98.205.46 [30:15:00:35] "POST /OSWRCRA/hazwaste/ldr/ HTTP/1.0" 200 800
+eso2.orl.mmc.com [30:15:00:35] "POST /docs/convert.html HTTP/1.0" 404 -

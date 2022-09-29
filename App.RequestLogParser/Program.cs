@@ -66,7 +66,7 @@ public class Program
         ),
         new Series(
           Name: "Successful GET Requests",
-          Data: logItems.Where(x => x.method == "GET")
+          Data: logItems.Where(x => x.method == "GET" && x.status == 200)
             .GroupBy(x => x.path)
             .Select(countSelector)
             .OrderByDescending(x => x.Value)
