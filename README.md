@@ -58,7 +58,7 @@ dotnet publish ./App.RequestLogParser --self-contained -r win10-x64 -c Release -
 
 ```sh
 # basic usage
-dotnet run --project App.RequestLogParser -- --input <path_to_input_file>
+dotnet run --project App.RequestLogParser --input <path_to_input_file>
 ```
 
 #### Production
